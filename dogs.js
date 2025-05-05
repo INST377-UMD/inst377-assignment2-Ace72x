@@ -49,14 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   
   
-function fetchBreeds() {
+  function fetchBreeds() {
     fetch('https://dogapi.dog/api/v2/breeds')
       .then(response => response.json())
       .then(data => {
         displayBreedButtons(data.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data from the API:', error);
       });
   }
   
