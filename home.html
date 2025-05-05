@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <title>Home Page</title>
+        <link rel="stylesheet" href="assignment2.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+        <script src="voice.js"></script>
+    </head>
+    
+    <body>
+            <header>
+                <h1>Home Page</h1>
+            </header>
+
+        <div class = "nav">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="stocks.html">Stocks</a></li>
+                <li><a href="dogs.html">Dogs</a></li>
+            </ul>
+        </div>
+
+        <h1>These are some of the activities</h1>
+
+        <div class="buttons">
+            <a href="stocks.html" class="custom-button">Stocks</a>
+            <a href="dogs.html" class="custom-button">Dogs</a>
+        </div>
+
+
+        <div class = "quotecenter">
+            <div class = "quotebox">
+                <h2>Quote of the page</h2>
+                <p></p>
+            </div>
+        </div>
+
+        <div class = "audiocenter">
+            <div class = "audiobox">
+                    <h2>Audio Controls</h2>
+                    <h3>You can also use your voice</h3>
+                    <ul>
+                        <li>Navigate to a different page
+                            <ul>
+                                <li>Say: Navigate to "page"</li>
+                            </ul>
+                        </li>
+                        <li>Change the page color
+                            <ul>
+                                <li>Say: Change the color to "color"</li>
+                            </ul>
+                        </li>
+                        <li>Say Hello!
+                            <ul>
+                                <li>Responds with "Hello" alert</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <button id="startBtn">Turn On Audio</button>
+                    <button id="stopBtn">Turn Off Audio</button>                
+            </div>
+        </div>
+        <script>
+            fetch('https://zenquotes.io/api/random')
+            .then(res => res.json())
+            .then(data => {
+            const quote = `"${data[0].q}" — ${data[0].a}`;
+            document.querySelector('.quotebox p').innerText = quote;
+            })
+        </script>
+
+    </body>
+</html>
